@@ -1,0 +1,15 @@
+@import "tailwindcss";
+:root {
+  --text: #18170f;
+  --bg: #f6f5f1;
+  --g: #f6f5f1;
+  --font-sans: "Instrument Sans", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}

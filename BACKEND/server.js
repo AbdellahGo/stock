@@ -1,15 +1,18 @@
 import './config/env.js'
 import express, {json} from 'express'
-import {dirname, join} from 'path'
-import {fileURLToPath} from 'url'
 import supplierRoutes from './Routes/supplierRoutes.js'
 import categoriesRoutes from './Routes/categoryRoutes.js'
 import productRoutes from './Routes/productRoutes.js'
+import cors from 'cors'
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 8080
 
 // Middleware
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
 app.use(json())
 
 app.use('/api/products', productRoutes)

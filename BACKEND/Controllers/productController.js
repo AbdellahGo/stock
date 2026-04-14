@@ -18,7 +18,7 @@ const getAllProducts = async (req, res) => {
                 FROM products p
                 LEFT JOIN categories c ON p.category_id = c.id
                 LEFT JOIN suppliers s ON p.supplier_id = s.id
-                LEFT JOIN product_details pd ON p.id = pd.id
+                LEFT JOIN product_details pd ON p.id = pd.product_id
                 ORDER BY p.id DESC
             `)
         res.json(rows)
