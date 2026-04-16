@@ -6,6 +6,7 @@ import type { CategoriesType, Modal_PF_State, ProductsType, ProductType, supplie
 import { useAddProduct, useEditProduct } from "../lib/query/products";
 import { useGetCategories } from "../lib/query/categories";
 import { useGetSuppliers } from "../lib/query/suppliers";
+import type { Dispatch, SetStateAction } from "react";
 
 const productSchema = z.object({
     name: z.string().min(1, "Required"),
@@ -20,20 +21,21 @@ const productSchema = z.object({
 type ProductFormData = z.infer<typeof productSchema>;
 
 type Props = {
-    setProductForm: (state: Modal_PF_State) => void;
+    setProductForm: Dispatch<SetStateAction<Modal_PF_State>>;
     action: "add" | "edit" | null;
     product?: ProductsType[number]
 };
 
 const ProductForm = ({ product, action, setProductForm }: Props) => {
-    //? queries
+    // queries
     const { data: categories, isPending: isCategories } = useGetCategories() as { data: CategoriesType, isPending: boolean }
     const { data: suppliers, isPending: isSuppliers } = useGetSuppliers() as { data: suppliersType, isPending: boolean }
 
-    //? mutation
+    // mutation
     const { mutateAsync: addProduct } = useAddProduct()
     const { mutateAsync: editProduct } = useEditProduct()
-
+    
+    // useForm
     const { register, handleSubmit, formState: { errors } } = useForm<ProductFormData>({
         resolver: zodResolver(productSchema),
         defaultValues: action == 'edit' && product ? {
@@ -65,23 +67,23 @@ const ProductForm = ({ product, action, setProductForm }: Props) => {
         }
         setProductForm({ isOpen: false, action: null, productIndex: -1 });
     };
-    
+
     const closeModal = () => setProductForm({ isOpen: false, action: null, productIndex: -1 });
 
     return (
         <div
             onClick={closeModal}
-            className="fixed top-0 left-0 w-full h-full bg-[#14120a47] backdrop-blur-xs z-50 flex items-center justify-center p-4">
+            className="fixed top-0 left-0 w-full h-full bg-[#14120a47] backdrop-blur-xs z-50 flex items-center justify-center p-4 cursor-pointer">
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-3xl w-full max-w-137.5 p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+                className="cursor-auto bg-white rounded-3xl w-full max-w-137.5 p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-xl font-bold text-gray-900 capitalize">
                         {action === "add" ? "Add product" : "Edit product"}
                     </h2>
                     <button
                         onClick={closeModal}
-                        className="p-2 hover:bg-gray-100 border-gray-200 border rounded-xl transition-colors">
+                        className="p-2 hover:bg-gray-100 border-gray-200 border rounded-xl transition-colors cursor-pointer">
                         <X size={20} className="text-gray-500" />
                     </button>
                 </div>
@@ -190,13 +192,13 @@ const ProductForm = ({ product, action, setProductForm }: Props) => {
                         <button
                             type="button"
                             onClick={closeModal}
-                            className="px-6 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors"
+                            className="cursor-pointer px-6 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors"
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="px-6 py-2.5 rounded-xl bg-[#1a1a1a] text-white font-bold text-sm hover:bg-black transition-colors"
+                            className="cursor-pointer px-6 py-2.5 rounded-xl bg-[#1a1a1a] text-white font-bold text-sm hover:bg-black transition-colors"
                         >
                             Save product
                         </button>

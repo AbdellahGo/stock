@@ -1,9 +1,10 @@
+import type { Dispatch, SetStateAction } from "react";
 import { useDeleteProduct } from "../lib/query/products";
 import type { Modal_P_Delete_State } from "../types/types"
 import { Trash2 } from 'lucide-react';
 
 type props = {
-    setDeleteP: (state: Modal_P_Delete_State) => void;
+    setDeleteP: Dispatch<SetStateAction<Modal_P_Delete_State>>
     productId: number
     productName: string
 }
@@ -18,11 +19,11 @@ const DeleteProduct = ({ productName, setDeleteP, productId }: props) => {
     return (
         <div
             onClick={() => setDeleteP({ isOpen: false, productId: -1, productName: '' })}
-            className="fixed top-0 left-0 w-full h-full bg-[#14120a47] backdrop-blur-xs z-50 flex items-center justify-center p-4"
+            className="cursor-pointer fixed top-0 left-0 w-full h-full bg-[#14120a47] backdrop-blur-xs z-50 flex items-center justify-center p-4"
         >
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-3xl w-full max-w-md p-8 shadow-2xl transition-all"
+                className="bg-white rounded-3xl w-full max-w-md p-8 shadow-2xl transition-all cursor-auto"
             >
                 <div className="mb-6 flex">
                     <div className="p-3 rounded-full bg-red-50 border border-red-100 text-red-500">

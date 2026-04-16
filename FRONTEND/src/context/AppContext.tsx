@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react"
-import type { IContextType, Modal_P_Delete_State, Modal_PD_State, Modal_PF_State } from "../types/types"
+import type { IContextType, Modal_Export_Table_State, Modal_P_Delete_State, Modal_PD_State, Modal_PF_State } from "../types/types"
 
 
 const INITIAL_STATE = {
@@ -25,6 +25,11 @@ const INITIAL_STATE = {
     productName: ''
   },
   setDeleteP: () => { },
+
+  exportTP: {
+    isOpen: false,
+  },
+  setExportTP: () => { },
 }
 
 const AppContext = createContext<IContextType>(INITIAL_STATE)
@@ -43,6 +48,9 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   // STATE THAT ALLOWS TO OPEN MODUL TO DELETE PRODUCT
   const [deleteP, setDeleteP] = useState<Modal_P_Delete_State>(INITIAL_STATE.deleteP);
 
+  // STATE THAT ALLOWS TO OPEN MODUL TO exporte products table
+  const [exportTP, setExportTP] = useState<Modal_Export_Table_State>(INITIAL_STATE.exportTP);
+
   const value = {
     search,
     setSearch,
@@ -52,6 +60,8 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     setProductModal,
     deleteP,
     setDeleteP,
+    exportTP,
+    setExportTP,
   }
   return (
     <AppContext.Provider value={value}>

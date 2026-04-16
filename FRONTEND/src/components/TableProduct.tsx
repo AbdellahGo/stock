@@ -6,6 +6,10 @@ import ProductForm from './productForm';
 import { useGetProducts } from '../lib/query/products';
 import { useAppContext } from '../context/AppContext';
 
+
+
+
+
 const TableProduct = () => {
     const { setProductForm, productForm, setProductModal, productModal, deleteP, setDeleteP, search } = useAppContext()
 

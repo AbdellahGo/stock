@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { ProductType } from "../../types/types";
 
-const BASE_URL: string = 'http://localhost:8080/api/products'
+const BASE_URL: string = `${import.meta.env.VITE_API_BASE_URL}/api/products`
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,

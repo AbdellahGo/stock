@@ -1,9 +1,11 @@
-import { Search, Plus } from 'lucide-react';
+import { Search, Plus, FileDown } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
+import { Button } from './Button';
+import { ExportTable } from './ExportTable';
 
 
 const SearchBar = () => {
-    const { setSearch, setProductForm } = useAppContext()
+    const { setSearch, setProductForm, setExportTP, exportTP } = useAppContext()
     return (
         <div className="flex justify-between items-center">
             <div className="flex items-end justify-between gap-2">
@@ -24,21 +26,29 @@ const SearchBar = () => {
                     />
                     <input onChange={(e) => setSearch(e.target.value)} className='w-[90%] outline-none border-none' type="text" placeholder="search by name, category, supplier" />
                 </div>
-                <button onClick={() => setProductForm({
+                <Button onClick={() => setExportTP({ isOpen: true })}>
+                    <FileDown
+                        color='#ffffff'
+                        size={15}
+                        strokeWidth={2} />
+                    Export
+                </Button>
+
+                <Button onClick={() => setProductForm({
                     isOpen: true,
                     action: 'add',
                     productIndex: -1
-                })}
-                    className='hover:bg-[#444] transition flex items-center gap-2 rounded-lg py-2.25 px-2.75 bg-black text-white font-sans'>
+                })}>
                     <Plus
                         color='#ffffff'
                         size={15}
                         strokeWidth={2}
                     />
                     Add product
-                </button>
+                </Button>
             </div>
-        </div>
+            {exportTP.isOpen ? <ExportTable setExportTP={setExportTP} /> : ''}
+        </div >
     )
 }
 

@@ -1,8 +1,9 @@
 import { X } from 'lucide-react';
 import type { Modal_PD_State, ProductsType } from '../types/types';
+import type { Dispatch, SetStateAction } from 'react';
 
 type Props = {
-    setProductModal: (state: Modal_PD_State) => void;
+    setProductModal: Dispatch<SetStateAction<Modal_PD_State>>;
     product: ProductsType[number]
 }
 
@@ -27,7 +28,7 @@ const ProductDetails = ({ product, setProductModal }: Props) => {
                     <button onClick={() => setProductModal({
                         isOpen: false,
                         productIndex: -1
-                    })} className='p-2 hover:bg-gray-100 border-gray-200 border rounded-xl transition-colors'>
+                    })} className='cursor-pointer p-2 hover:bg-gray-100 border-gray-200 border rounded-xl transition-colors'>
                         <X size={20} className="text-gray-500" />
                     </button>
                 </div>

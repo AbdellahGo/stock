@@ -9,6 +9,9 @@ export type Modal_P_Delete_State = {
     productId: number
     productName: string
 }
+export type Modal_Export_Table_State = {
+    isOpen: boolean
+}
 export type Modal_PF_State = {
     isOpen: boolean;
     action: 'add' | 'edit' | null;
@@ -27,6 +30,19 @@ export type ProductsType = {
     created_at: string
     image_url: string
 }[]
+
+export type ExportProducts = {
+    id: number
+    name: string
+    price: number
+    quantity: number
+    category_name: string
+    supplier_name: string
+    description: string
+    created_at: string
+    image_url: string
+}[]
+
 
 export type ProductType = {
     name: string;
@@ -52,7 +68,7 @@ export type suppliersType = {
 export type IContextType = {
     search: string,
     setSearch: Dispatch<SetStateAction<string>>,
-    
+
     productForm: Modal_PF_State,
     setProductForm: Dispatch<SetStateAction<Modal_PF_State>>,
 
@@ -61,4 +77,6 @@ export type IContextType = {
 
     deleteP: Modal_P_Delete_State,
     setDeleteP: Dispatch<SetStateAction<Modal_P_Delete_State>>,
+    exportTP: Modal_Export_Table_State,
+    setExportTP: Dispatch<SetStateAction<Modal_Export_Table_State>>,
 }

@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS stock;
-CREATE DATABASE stock;
-USE stock;
+-- DROP DATABASE IF EXISTS stock;
+-- CREATE DATABASE stock;
+-- USE stock;
 
 -- ─────────────────────────────────────────
 -- 1. categories  (no dependencies)

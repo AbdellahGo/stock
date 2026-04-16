@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL: string = 'http://localhost:8080/api/categories'
+const BASE_URL: string = `${import.meta.env.VITE_API_BASE_URL}/api/categories`
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
