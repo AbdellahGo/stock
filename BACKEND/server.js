@@ -10,11 +10,10 @@ const PORT = process.env.PORT || 8080
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://stock-eta-opal.vercel.app/',
     credentials: true
 }));
 app.use(json())
-
 app.use('/api/products', productRoutes)
 app.use('/api/suppliers', supplierRoutes)
 app.use('/api/categories', categoriesRoutes)
