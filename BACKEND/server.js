@@ -19,7 +19,11 @@ const PORT = process.env.PORT || 8080
 // Middleware
 //? production
 app.use(cors({
+<<<<<<< HEAD
     origin: 'https://stock-eta-opal.vercel.app',
+=======
+    origin: 'https://stock-ecru-tau.vercel.app',
+>>>>>>> stock
     credentials: true
 }));
 //? dev
