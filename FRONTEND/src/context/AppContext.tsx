@@ -46,7 +46,7 @@ const INITIAL_STATE = {
 
   login: () => { },
 
-  isLoadingUserData: true
+  isLoadingUserData: true,
 }
 
 const AppContext = createContext<IContextType>(INITIAL_STATE)
@@ -77,7 +77,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoadingUserData, setIsLoadingUserData] = useState(true)
 
   // TANSTACK QUERY
-  const { data, isSuccess, isError, isLoading: isQueryLoading } = useCheckAuthoUser();
+  const { data, isSuccess, isError } = useCheckAuthoUser();
 
   // LOGIN
   const login = (userData: UserDataType) => {
