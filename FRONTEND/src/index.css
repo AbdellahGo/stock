@@ -1,15 +1,46 @@
 @import "tailwindcss";
-:root {
-  --text: #18170f;
-  --bg: #f6f5f1;
-  --g: #f6f5f1;
+
+@theme {
+  /* تعريف الألوان */
+  --color-brand-text: #18170f;
+  --color-brand-bg: #f6f5f1;
+  --color-brand-muted: #a09d94;
+  --color-brand-border: #e2e0d8;
+  --color-brand-pill: #f0eee6;
+  --color-brand-overlay: rgba(20, 18, 10, 0.28);
+
+  /* الألوان التي نسيتها (تمت إضافتها هنا) */
+  --color-brand-header: #f8f7f4; /* bg-[#f8f7f4] - لرأس الجدول */
+  --color-brand-badge-bg: #e8e6df; /* bg-[#e8e6df] - خلفية التصنيفات */
+  --color-brand-badge-text: #6a6860; /* text-[#6a6860] - نص التصنيفات */
+
+  /* تعريف الخطوط */
   --font-sans: "Instrument Sans", sans-serif;
   --font-serif: "Instrument Serif", serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  /* تعريف المسافات المخصصة */
+  --spacing-137_5: 34.375rem; /* 550px */
+  --spacing-112_5: 28.125rem; /* 450px */
+  --spacing-110: 27.5rem; /* 440px */
+  --spacing-75: 18.75rem; /* 300px */
+  --spacing-6_25: 1.5625rem; /* 25px */
+
+  /* font size */
+  --text-30: 30px;
+
+  /* تعريف الـ calc الذي طلبته */
+  --spacing-half-gap: calc(50% - 4px);
 }
-body {
-  font-family: var(--font-sans);
-  background: var(--bg);
-  color: var(--text);
-  font-size: 14px;
+
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+  }
 }
+
+
+

@@ -4,6 +4,7 @@ const BASE_URL: string = `${import.meta.env.VITE_API_BASE_URL}/api/categories`
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
+    withCredentials: true, // for automatically sending and receiving cookies
     headers: {
         'Content-Type': 'application/json',
     }

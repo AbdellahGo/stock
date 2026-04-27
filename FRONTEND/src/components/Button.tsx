@@ -8,7 +8,7 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export const Button = ({ children, bStyles, ...props }: Props) => {
     return (
         <button {...props}
-            className={`cursor-pointer hover:bg-[#444] transition flex items-center font-mono gap-2 rounded-lg py-2.25 px-2.75 bg-black text-white ${bStyles}`}>
+            className={`cursor-pointer hover:bg-[#444] transition flex items-center justify-center font-mono gap-2 rounded-lg py-2.25 px-2.75 bg-black text-white ${bStyles}`}>
             {children}
         </button>
     )
