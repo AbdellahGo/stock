@@ -2,7 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { X } from "lucide-react";
-import type { CategoriesType, Modal_PF_State, ProductsType, ProductType, suppliersType } from "../types/types";
+import type { CategoriesType, Modal_PF_State, ProductsType, suppliersType } from "../types/types";
 import { useAddProduct, useEditProduct } from "../lib/query/products";
 import { useGetCategories } from "../lib/query/categories";
 import { useGetSuppliers } from "../lib/query/suppliers";
@@ -23,7 +23,7 @@ type ProductFormData = z.infer<typeof productSchema>;
 type Props = {
     setProductForm: Dispatch<SetStateAction<Modal_PF_State>>;
     action: "add" | "edit" | null;
-    product?: ProductsType[number]
+    product: ProductsType[number] | null
 };
 
 const ProductForm = ({ product, action, setProductForm }: Props) => {
@@ -56,7 +56,7 @@ const ProductForm = ({ product, action, setProductForm }: Props) => {
             },
     });
 
-    const onSubmit: SubmitHandler<ProductFormData> = (data: ProductType) => {
+    const onSubmit: SubmitHandler<ProductFormData> = (data) => {
         if (action === 'add') {
             addProduct(data)
         } else if (action === 'edit' && product?.id) {

@@ -65,6 +65,12 @@ export type suppliersType = {
     email: string
 }[]
 
+export type UserDataType = {
+    id: string
+    username: string
+    email: string
+}
+
 export type IContextType = {
     search: string,
     setSearch: Dispatch<SetStateAction<string>>,
@@ -77,6 +83,18 @@ export type IContextType = {
 
     deleteP: Modal_P_Delete_State,
     setDeleteP: Dispatch<SetStateAction<Modal_P_Delete_State>>,
+
     exportTP: Modal_Export_Table_State,
     setExportTP: Dispatch<SetStateAction<Modal_Export_Table_State>>,
+
+    user: UserDataType,
+    setUser: Dispatch<SetStateAction<UserDataType>>,
+
+    isAuthenticated: boolean,
+    setIsAuthenticated: Dispatch<SetStateAction<boolean>>,
+
+    login: (userData: UserDataType) => void,
+
+    isLoadingUserData: boolean,
 }
+

@@ -34,37 +34,37 @@ const ProductDetails = ({ product, setProductModal }: Props) => {
                 </div>
                 <div className="grid md:grid-cols-2 gap-y-8 gap-x-12 mb-8 relative">
                     <div>
-                        <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-1">ID</p>
+                        <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-1">ID</p>
                         <p className="text-lg font-bold text-gray-800">#{product.id}</p>
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-1">Added On</p>
-                        <p className="text-lg font-medium text-[#18170f]">{created_at}</p>
+                        <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-1">Added On</p>
+                        <p className="text-lg font-medium text-brand-text">{created_at}</p>
                     </div>
-                    <span className='md:top-15 top-35 w-full h-px absolute bg-[#e2e0d8]' />
+                    <span className='md:top-15 top-35 w-full h-px absolute bg-brand-border' />
                     <div>
-                        <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-1">Price</p>
+                        <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-1">Price</p>
                         <p className="text-lg font-black text-gray-900">{product.price} €</p>
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-1">Quantity in Stock</p>
-                        <p className="text-lg font-medium text-[#18170f]">{product.quantity} units</p>
+                        <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-1">Quantity in Stock</p>
+                        <p className="text-lg font-medium text-brand-text">{product.quantity} units</p>
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-1">Category</p>
-                        <span className="inline-block bg-[#f0eee6] px-4 py-1.5 rounded-full text-xs font-bold text-[#18170f] mt-1">
+                        <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-1">Category</p>
+                        <span className="inline-block bg-brand-pill px-4 py-1.5 rounded-full text-xs font-bold text-brand-text mt-1">
                             {product.category_name}
                         </span>
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-1">Supplier</p>
+                        <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-1">Supplier</p>
                         <p className="text-lg font-medium text-gray-700">{product.supplier_name}</p>
                     </div>
                 </div>
                 <div>
-                    <p className="text-xs font-bold text-[#a09d94] uppercase tracking-widest mb-2">Description</p>
-                    <div className="bg-[#f5f4f0] border border-[#e2e0d8] rounded-xl p-3 h-fit">
-                        <p className="text-[#18170f] font-medium">{product.description || 'no description for this product'}</p>
+                    <p className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-2">Description</p>
+                    <div className="bg-[#f5f4f0] border border-brand-border rounded-xl p-3 h-fit">
+                        <p className="text-brand-text font-medium">{product.description || 'no description for this product'}</p>
                     </div>
                 </div>
             </div>

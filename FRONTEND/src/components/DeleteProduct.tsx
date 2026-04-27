@@ -31,7 +31,7 @@ const DeleteProduct = ({ productName, setDeleteP, productId }: props) => {
                     </div>
                 </div>
 
-                <div className=" pb-3 mb-3 border-b border-[#e2e0d8]">
+                <div className=" pb-3 mb-3 border-b border-brand-border">
                     <h2 className="text-xl font-bold text-gray-900 mb-2 font-sans">Delete product?</h2>
                     <p className="text-gray-500 text-[15px] leading-relaxed">
                         "{productName}" will be permanently removed. This cannot be undone.
